@@ -1,3 +1,17 @@
+-- rejoin if disconnected auto
+game:service"NetworkClient".ChildRemoved:Connect(function()
+       game:service"TeleportService":Teleport(game.PlaceId);
+end)
+-- intro tunes
+wait()
+local sound = Instance.new("Sound") -- sound for execution
+sound.SoundId = "rbxassetid://9009668475"
+sound.Volume = 2
+sound.Pitch = 0.8
+sound.Parent = game:GetService("SoundService")
+sound:Play()
+wait()
+-- notifications
 local starterGui = game:GetService("StarterGui")
 wait(1)
 starterGui:SetCore("SendNotification", {
@@ -15,16 +29,17 @@ starterGui:SetCore("SendNotification", {
 	Icon = "rbxassetid://10751883088",
 	Duration = 5
 })
+-- kavo ui lib
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 local Window = Library.CreateLib("Bleeding Blades By Zu0a", "Midnight") 
 
 -- main 
             local Main = Window:NewTab("Main")
         local MainSection = Main:NewSection("Main Functions")
-                MainSection:NewButton("Lagswitch (X to Toggle)", "ButtonInfo", function()
+                MainSection:NewButton("Lagswitch (X to Toggle)", "lagswitching", function()
                     loadstring(game:HttpGet("https://paste.gg/p/anonymous/d3492bd620bd4c46b54680ac80b0fa0d/files/161ddd9c992c4ceba3c298458d45188a/raw", true))()
                 end)
-                MainSection:NewButton("Basic Player ESP", "ButtonInfo", function()
+                MainSection:NewButton("Basic Unnamed ESP", "esp", function()
                     assert(Drawing, 'exploit not supported')
 
 if not syn and not PROTOSMASHER_LOADED then print'Unnamed ESP only officially supports Synapse and Protosmasher! If you\'re an exploit developer and have added drawing API to your exploit, try setting syn as true then checking if that works, otherwise, DM me on discord @ cppbook.org#1968 or add an issue to the Unnamed ESP Github Repository and I\'ll see it through email!' end
@@ -2618,14 +2633,24 @@ v.UpperTorso.Transparency = 0.5
 v.UpperTorso.CanCollide = false
 end
                 end)
-        
-            local Main = Window:NewTab("Misc")
-        local MainSection = Main:NewSection("Misc")
+                MainSection:NewButton("Dwarf", "lol", function()
+                    plr = game.Players:GetChildren()
+for i,v in pairs(game.Workspace:GetChildren(plr.Name)) do
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character
+local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+wait(1)
+Humanoid:FindFirstChild("BodyTypeScale"):Destroy()
+wait(1)
+Humanoid:FindFirstChild("BodyHeightScale"):Destroy()
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Size = Vector3.new(1, 1, 1)
+end
+                    end)
         
 local Main = Window:NewTab("Credits")
         local ESPSection = Main:NewSection("-- Credits and Information --")
 ESPSection:NewLabel("Script Developer - Zu0a")
-ESPSection:NewLabel("Questions/Recommendations DM Zu0a#8472")
-local Main = Window:NewTab("UPDATED - 9/13/22")
-        local ESSection = Main:NewSection("Updated Last - 2:34 PM EST")
-        local ESSection = Main:NewSection("Added: Lagswitch")
+local Main = Window:NewTab("UPDATED - 2/28/23")
+        local ESSection = Main:NewSection("Added: Dwarf")
+-- i farted nigga
